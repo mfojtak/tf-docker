@@ -14,3 +14,4 @@ RUN pip uninstall tensorflow && pip install tensorflow-gpu==2.0.0-rc0 \
     pip install sentencepiece && \
     pip install sentencepiece/tensorflow/dist/tf_sentencepiece-0.1.83-py2.py3-none-manylinux1_x86_64.whl && \
     pip install tfa-nightly
+RUN git clone https://github.com/mfojtak/deco.git && cd deco && pip install .
