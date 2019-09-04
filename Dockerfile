@@ -1,6 +1,6 @@
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 LABEL version="1.1"
-RUN apt-get update && apt-get install -y wget git && \
+RUN apt-get update && apt-get install -y wget git cmake && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
