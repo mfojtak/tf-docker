@@ -9,4 +9,8 @@ RUN apt-get update && apt-get install -y wget && \
     cp /opt/conda/bin/python /usr/bin/python
 ENV PATH /opt/conda/bin:$PATH
 ENV LD_LIBRARY_PATH /opt/conda/lib:$LD_LIBRARY_PATH
-RUN pip install tf-nightly-gpu-2.0-preview
+RUN git clone https://github.com/mfojtak/sentencepiece.git && cd sentencepiece/tensorflow && ./make_py_wheel.sh native
+RUN pip uninstall tensorflow && pip install tensorflow-gpu==2.0.0-rc0 \
+    pip install sentencepiece && \
+    pip install sentencepiece/tensorflow/dist/tf_sentencepiece-0.1.83-py2.py3-none-manylinux1_x86_64.whl && \
+    pip install tfa-nightly
