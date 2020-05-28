@@ -11,6 +11,6 @@ ENV PATH /opt/conda/bin:$PATH
 ENV LD_LIBRARY_PATH /opt/conda/lib:$LD_LIBRARY_PATH
 #RUN git clone https://github.com/mfojtak/sentencepiece.git && cd sentencepiece/tensorflow && ./make_py_wheel.sh native
 #COPY --from=tf_sentencepiece /sentencepiece/tensorflow/dist/tf_sentencepiece-0.1.83-py2.py3-none-manylinux1_x86_64.whl /
-RUN pip install tensorflow-gpu && \
+RUN pip install tensorflow && \
     pip install sentencepiece tensorflow-addons tensorflow-text
 RUN git clone https://github.com/mfojtak/deco.git && cd deco && pip install .
